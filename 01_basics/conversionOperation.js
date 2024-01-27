@@ -46,3 +46,23 @@
  let stringNumber = String(someNumber);
  console.log(stringNumber);
  console.log(typeof stringNumber); // Here converted 33 as '33'. 
+
+
+ /******************************** OPERATIONS ************************************/
+ 
+ 
+ let value = 3;
+ let negValue = -value;
+ console.log(negValue);
+
+ //Addition of strings...
+ let str1 = 'hello'
+ let str2 = ' World'
+ let str3 = str1 + str2
+ console.log(str3);
+
+ console.log('1' + 2);
+ console.log(1 + '2');
+ console.log('1' + 2 + 2); // String encounter first then all treat as the string
+ console.log(1 + 2 + '2'); // Number encounter first so they add 1 + 2 = 3 then '2' is added as string as above.
+ 
