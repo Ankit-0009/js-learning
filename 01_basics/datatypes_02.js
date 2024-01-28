@@ -47,3 +47,29 @@ JavaScript's dynamic typing allows for more flexibility but can lead to potentia
 // Array - object
 // Function - function(object)
 // Object - object
+
+
+
+// *********************************************************************************
+
+// Memory are of two types that are :- 
+// Stack => used by the primitive datatypes    // Copy
+// Heap => used by the non-primitive datatypes   // Reference
+
+let name = 'Ankit'
+let myname = name; // It makes a copy of 'Ankit' not reference it.
+myname = 'Shiv';
+
+console.log(name);
+console.log(myname);
+
+
+let userOne = {
+    email: 'Ankit003',
+    upiId: 'user@by'
+}
+let userTwo = userOne; // Here userTwo get the reference of the userOne.
+userTwo.email = 'AAADRE$#';
+
+console.log(userOne)
+console.log(userTwo); // Both object email value has changed by changing in one object email.
