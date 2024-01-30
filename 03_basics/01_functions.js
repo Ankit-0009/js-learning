@@ -21,12 +21,12 @@ addTwoNumbers(4, null); // 4
 
 function loginUserMessage(userName){
     if(userName === undefined){ // !userName ===> This says undefined is false so make it true by adding ! to start then it will become true and if statement will be executed...
-        console.log("Please enter the userName");
-        return;
+        console.log("Please enter the userName"); 
+        return; 
     }
-    return `${userName} is logged in the system`;
-}
-console.log(loginUserMessage("Ankit"));
+    return `${userName} is logged in the system`; 
+} 
+console.log(loginUserMessage("Ankit")); 
 console.log(loginUserMessage()); // Undefined error by not passing anything....
 
 
