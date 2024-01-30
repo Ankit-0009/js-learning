@@ -27,6 +27,6 @@ function loginUserMessage(userName){
     return `${userName} is logged in the system`;
 }
 console.log(loginUserMessage("Ankit"));
-console.log(loginUserMessage());
+console.log(loginUserMessage()); // Undefined error by not passing anything....
 
 
