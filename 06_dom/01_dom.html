@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parentDiv = document.querySelector(".parent");
+    console.log(parentDiv);
+    console.log(parentDiv.children); // HTMLCollection which is not an array ...
+    console.log(parentDiv.children[0].innerHTML); // HTMLCollection first element of div inner html..
+    for (let i = 0; i < parentDiv.children.length; i++) {
+        console.log(parentDiv.children[i].innerHTML);
+        
+    }
+</script>
+</html>
