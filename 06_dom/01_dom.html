@@ -19,7 +19,23 @@
     console.log(parentDiv.children[0].innerHTML); // HTMLCollection first element of div inner html..
     for (let i = 0; i < parentDiv.children.length; i++) {
         console.log(parentDiv.children[i].innerHTML);
-        
+        // console.log(parentDiv.children[i].textContent);
     }
+    parentDiv.children[1].style.backgroundColor = "Red";
+    parentDiv.children[1].style.color = "green";
+
+    // If we want to select only first child then ....
+    console.log(parentDiv.firstElementChild)
+
+    // Similarly for the last child so ....
+    console.log(parentDiv.lastElementChild);
+
+    // IF we query select the child and we have to select the parent then ....
+    const dayOne = document.querySelector(".day");
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    console.log(dayOne.nextElementSibling);
+
+    console.log("Nodes: ",parentDiv.childNodes);
 </script>
 </html>
