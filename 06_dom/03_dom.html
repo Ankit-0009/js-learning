@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>    
+</body>
+<script>
+    function addLaguage(langName){ // This method is correct but it would take a large amount of time. Therefore we have to optimize this approach. 
+        const li = document.createElement("li");
+        li.innerText = langName;
+        console.log(li);
+        const lang = document.querySelector(".language");
+        lang.appendChild(li);
+    } // Actually we append child at end so if there are 1000 list then it scan or traverse all list and which taking a lot of time..
+    addLaguage("C++");
+
+    // More optimize way to add a list item...
+    function optimizeLanguage(langName){
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(langName)); // createTextNode will not read all the list items. It basically create one and append that in list...
+        document.querySelector(".language").appendChild(li);
+    }
+    optimizeLanguage("Ruby")
+
+
+    // Edit
+    const first_li = (document.querySelectorAll("li"));
+    first_li[0].innerText = "C";
+    const second_li = document.querySelector("li:nth-child(2)");
+    const li = document.createElement("li");
+    li.textContent = "Go";
+    second_li.replaceWith(li);
+
+    // Remove
+    const last_li = document.querySelector("li:last-child");
+    last_li.remove();
+</script>
+</html>
