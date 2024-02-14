@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li> 
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert('OWL');
+    // } This is method to use onclick. But this is not appropriate approach for larger projects...
+
+    // Best approach (More study for the interviews)
+    document.getElementById('owl').addEventListener('click', function(e){
+        // alert('Owl hello world');
+        // console.log(e);
+    })
+
+    // Event propagation / Bubbling
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log('Owl clicked');
+    }, false)
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log('images clicked');
+    }, false)
+    // Here when we click on the owl then it scan from owl to image tag which is known as bubbling. That is scanning from inside to outside.
+
+
+
+    // Capturing
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log('Owl clicked');
+    }, true)
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log('images clicked');
+    }, true) // The capturing is scan from top to bottom...
+
+
+    // If we want to stop the propagation then write e.stopPropagation()
+
+
+    // Prevent default example
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault();
+        console.log("Google clicked");
+    });
+
+
+    // Now we have to remove any image which has been clicked...
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target); // target gives the img tag by clicking the image...
+        console.log(e.target.parentNode); // It is basically gives the tag in which img tag has written ...
+
+        // Now to remove the images...
+        // let removeImage = e.target.parentNode;
+        // removeImage.remove(); // But there would a problem when we click on google then it remove all the tags in ul. So to counter that problem we use some checks.
+
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            let removeImage = e.target.parentNode;
+            removeImage.remove();
+        }
+
+
+    })
+</script>
+</html>
