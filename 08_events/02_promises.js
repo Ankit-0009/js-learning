@@ -4,9 +4,10 @@ const promise = new Promise(function(resolve,reject){
     // Connectivity to DB.
     setTimeout(function(){
         console.log('Async task has completed');
+        // To make connectivity of resolve to then we have to write ...
+        resolve();
     },1000);
-    // To make connectivity of resolve to then we have to write ...
-    resolve();
+    
     
 })
 
@@ -80,3 +81,29 @@ async function consumePromiseFive (){
     }
 }
 consumePromiseFive()
+
+
+// Fetch usecase
+// async function promiseSix (){
+//     const URL = await fetch('https://gist.githubusercontent.com/shanselman/5e27afbd5f213974b2fc63b082f2df4c/raw/927620d1ece8512584ea2abd492a8385d8de6f62/profile.json');
+//     try {
+//         const data = await URL.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.log('Error');
+        
+//     }
+// }
+// promiseSix();
+
+// Fetch usecase using then and catch ...
+fetch('https://gist.githubusercontent.com/shanselman/5e27afbd5f213974b2fc63b082f2df4c/raw/927620d1ece8512584ea2abd492a8385d8de6f62/profile.json')
+.then((response) => {
+    return response.json();
+})
+.then((data) => {
+    console.log(data);
+})
+.catch(() => {
+    console.log('Error! ');
+})
